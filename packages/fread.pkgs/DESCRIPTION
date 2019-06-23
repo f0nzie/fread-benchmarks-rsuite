@@ -7,4 +7,9 @@ Author: msfz751
 Maintainer: Who to complain to <yourfault@somewhere.net>
 Description: More about what it does (maybe more than one line)
 License: What license is it under?
-Imports: logging
+Imports: logging,
+  data.table,
+  readr,
+  purrr,
+  magrittr
+RoxygenNote: 6.1.1
