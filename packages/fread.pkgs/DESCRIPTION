@@ -11,5 +11,7 @@ Imports: logging,
   data.table,
   readr,
   purrr,
-  magrittr
+  magrittr,
+  dplyr,
+  scales
 RoxygenNote: 6.1.1
