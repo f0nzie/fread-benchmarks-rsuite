@@ -17,14 +17,14 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 ## Introduction
-This is the `rsuite` version of teh original tests published by [Jozef Hajnala](https://gitlab.com/jozefhajnala) in [Gitlab](https://gitlab.com/jozefhajnala/fread-benchmarks/tree/master). 
+This is the `rsuite` version of the original tests published by [Jozef Hajnala](https://gitlab.com/jozefhajnala) in [Gitlab](https://gitlab.com/jozefhajnala/fread-benchmarks/tree/master). 
 
 It is conceptually the same scripts but adding these changes:
 
-1. a new R script using `awk`
+1. a new R script using `awk`: `06_fread_awk.R`
 2. modification of the project structure using the `rsuite` paradigm
 3. addition of comments on scripts
-4. generation of results dataframe
+4. generation of results dataframe: `show_results.R`
 5. plots for memory and average time per operation
 6. packages are all installed exclusively for this project, under the folder `packages`, insulated from the global environment
 
@@ -68,7 +68,7 @@ bash bench.sh R/05_readr_grep.R &> results/out_readr_grep.txt
 ### For data.table::fread with awk
 
 ```
-bash bench.sh R/04_fread_grep.R &> results/out_fread_awk.txt
+bash bench.sh R/06_fread_awk.R &> results/out_fread_awk.txt
 ```
 
 
@@ -122,6 +122,7 @@ ggplot(df, aes(x = rscript, y = avg_secs)) +
     coord_flip()
 ```
 
+
 ## How to reproduce this project yourself
 1. Download and install the [RSuite client](https://rsuite.io/RSuite_Download.php). Available for Linux, Mac and Windows.
 2. Install the `rsuite` package with `rsuite install`
@@ -130,7 +131,7 @@ ggplot(df, aes(x = rscript, y = avg_secs)) +
 5. Build the project with `rsuite proj build`
 6. Download the data running this from the console `Rscript R/data_prep.R`
 7. Run each of the tests. Example: `bash bench.sh R/01_base.R &> results/out_base.txt`. See above for the rest.
-8. Enjoy
+8. Generate a comparative table with the results running `Rscript R/show_results.R`
 
 
 ## References

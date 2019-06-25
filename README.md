@@ -9,16 +9,16 @@
 
 ## Introduction
 
-This is the `rsuite` version of teh original tests published by [Jozef
+This is the `rsuite` version of the original tests published by [Jozef
 Hajnala](https://gitlab.com/jozefhajnala) in
 [Gitlab](https://gitlab.com/jozefhajnala/fread-benchmarks/tree/master).
 
 It is conceptually the same scripts but adding these changes:
 
-1.  a new R script using `awk`
+1.  a new R script using `awk`: `06_fread_awk.R`
 2.  modification of the project structure using the `rsuite` paradigm
 3.  addition of comments on scripts
-4.  generation of results dataframe
+4.  generation of results dataframe: `show_results.R`
 5.  plots for memory and average time per operation
 6.  packages are all installed exclusively for this project, under the
     folder `packages`, insulated from the global environment
@@ -53,7 +53,7 @@ The files are downloaded compressed as bunzip, then expanded as `csv`.
 
 ### For data.table::fread with awk
 
-    bash bench.sh R/04_fread_grep.R &> results/out_fread_awk.txt
+    bash bench.sh R/06_fread_awk.R &> results/out_fread_awk.txt
 
 ## Results
 
@@ -141,7 +141,8 @@ ggplot(df, aes(x = rscript, y = avg_secs)) +
     R/data_prep.R`
 7.  Run each of the tests. Example: `bash bench.sh R/01_base.R &>
     results/out_base.txt`. See above for the rest.
-8.  Enjoy
+8.  Generate a comparative table with the results running `Rscript
+    R/show_results.R`
 
 ## References
 
